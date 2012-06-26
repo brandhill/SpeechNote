@@ -7,18 +7,21 @@
    	<TextView 
    	    android:id="@+id/modify_time"
    	    android:layout_width="180dip"
-   	    android:layout_height="50dip"
+   	    android:layout_height="60dip"
    	    android:paddingTop="1dip"
    	    android:paddingBottom="1dip"
+   	    android:textSize="20dip"
+   	    android:gravity="center_vertical"
    	    />
    	
    	<TextView 
    	    android:id="@+id/content_short"
    	    android:layout_width="fill_parent"
    	    android:layout_height="fill_parent"
-   	    android:gravity="right"
-   	    android:paddingTop="1dip"
+   	    android:paddingTop="20dip"
    	    android:paddingBottom="1dip"
+   	    android:textSize="13dip"
+   	    android:gravity="center_vertical|right|bottom"
    	    />
     
 </LinearLayout>

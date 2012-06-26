@@ -25,6 +25,7 @@ public class EditNoteActivity extends Activity {
 		editContent = (EditText) this.findViewById(R.id.edit_content);
 		String toEdit = this.getIntent().getStringExtra("toEdit");
 		editContent.setText(toEdit);
+		editContent.setSelection(toEdit.length());
 
 		okEdit.setOnClickListener(new OnClickListener() {
 

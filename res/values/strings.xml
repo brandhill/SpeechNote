@@ -3,13 +3,14 @@
 
     <string name="hello">Hello World, SpeechNoteActivity!</string>
     <string name="app_name">SpeechNote</string>
-    <string name="title">Speech Notes</string>
+    <string name="title">Speech Notes v0.2</string>
     <string name="add_new">+</string>
     <string name="add_new_menu_item">Add New</string>
     <string name="about">About</string>
     <string name="exit">Exit</string>
     <string name="edit_note">Edit Note</string>
     <string name="ok_edit">Ok</string>
+    <string name="note_detail">Detail</string>
     <string name="cancel_edit">Cancel</string>
     <string name="edit_selection">Edit</string>
     <string name="delete_selection">Delete</string>

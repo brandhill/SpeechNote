@@ -16,7 +16,9 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class SpeechNoteActivity extends ListActivity {
 	/** Called when the activity is first created. */
@@ -67,6 +69,12 @@ public class SpeechNoteActivity extends ListActivity {
 			HashMap<String, String> newMap = new HashMap<String, String>();
 			newMap.put("id", id);
 			newMap.put("content", content);
+			System.out.println("content length " + content.length());
+			if (content.length() > 10) {
+				newMap.put("content_short", content.substring(0, 10) + "...");
+			} else {
+				newMap.put("content_short", content);
+			}
 			newMap.put("modify_time", modify_time);
 			list.add(newMap);
 		}
@@ -82,8 +90,22 @@ public class SpeechNoteActivity extends ListActivity {
 		this.refreshList();
 	}
 
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		Intent intent = new Intent();
+		intent.setClass(SpeechNoteActivity.this, NoteDetailActivity.class);
+		intent.putExtra("detail", list.get((int) id).get("content"));
+		this.startActivity(intent);
+	}
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == VOICE_RECOGNITION_REQUEST_CODE
+		
+		if (data == null) {
+			Toast.makeText(SpeechNoteActivity.this, "Recognition Fail", Toast.LENGTH_SHORT);
+		}
+		else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE
 				&& resultCode == RESULT_OK) {
 			// Fill the list view with the strings the recognizer thought it
 			// could have heard
@@ -95,7 +117,7 @@ public class SpeechNoteActivity extends ListActivity {
 
 			String[] res = new String[5];
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 5 && i < matches.size(); i++) {
 				res[i] = matches.get(i);
 			}
 
@@ -116,7 +138,7 @@ public class SpeechNoteActivity extends ListActivity {
 	private void setNewAdapter() {
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.notelist, new String[] { "content", "modify_time" },
+				R.layout.notelist, new String[] { "content_short", "modify_time" },
 				new int[] { R.id.modify_time, R.id.content_short });
 
 		this.setListAdapter(adapter);
