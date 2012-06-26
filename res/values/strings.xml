@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SpeechNoteActivity!</string>
+    <string name="app_name">SpeechNote</string>
+    <string name="title">Speech Notes</string>
+    <string name="add_new">+</string>
+    <string name="add_new_menu_item">Add New</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="ok_edit">Ok</string>
+    <string name="cancel_edit">Cancel</string>
+    <string name="edit_selection">Edit</string>
+    <string name="delete_selection">Delete</string>
+	<string name="about_content">
+	    This is a note app using speech recognition to speed up your input, created by bearzx
+	</string>
+    
+</resources>
